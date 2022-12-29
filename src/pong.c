@@ -18,7 +18,7 @@
 
 // скорость игры
 #define TIME_ONE_STEP 70000
-#define WIN_SCORE 21
+#define WIN_SCORE 24
 
 int ball_x_coord, ball_y_coord, ball_x_speed, ball_y_speed;
 int rack_left_y_coord, rack_right_y_coord;
@@ -43,19 +43,17 @@ int main() {
     initscr();
     nodelay(stdscr, 1);
 
-    int flag = 1;
-    while (flag) {
-                    // бесконечный цикл, крутится без остановки пока не достигнем счета в 21
+    while (score_left != WIN_SCORE && score_right != WIN_SCORE) {
+        // бесконечный цикл, крутится без остановки пока не достигнем счета в 21
         clear();
         input_field_to_screen();  // отрисовываем счет поле
         refresh();                // отвечает за вывод на экран из printw
         read_symb();              // считываем символы(в read_symb) и перемещаем ракетки
         move_ball();              // перемещаем мяч
         usleep(TIME_ONE_STEP);
-        if (score_left == WIN_SCORE || score_right == WIN_SCORE) {
-            flag = 0;
-        }
+
     }
+
     clear();
     win_screen();
     refresh();
@@ -74,11 +72,7 @@ void win_screen() {
                 printw("|");
                 continue;
             }
-//            if ((y == 0 || y == 24) && x != 79 && x != 0) {
-//                printf("-");
-//                continue;
-//            }
-//          Уголочки
+//          Углы
             if (y == 0 && x == 0) {
                 printw(" ");
                 continue;
@@ -101,7 +95,7 @@ void win_screen() {
                 x += 15;
                 continue;
             }
-//          выводим, кто победитель
+//          Выводим, кто победитель
             if (y == 12 && x == 23) {
                 if (score_left == WIN_SCORE) {
                     printw("Player left, you are the winner!");
@@ -113,11 +107,11 @@ void win_screen() {
                     continue;
                 }
             }
-//          выводим счет
+//          Выводим счет
             if (y == 15 && x == 37) {
-                    printw("%d : %d", score_left, score_right);
-                    x += 4;
-                    continue;
+                printw("%d : %d", score_left, score_right);
+                x += 4;
+                continue;
             } else {
                 printw(" ");
             }

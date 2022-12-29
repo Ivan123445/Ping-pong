@@ -6,6 +6,7 @@
 
 1. [Pong.c](#pongc)
 2. [Pong_step_by_step.c](#pong_step_by_stepc)
+3. [Screen](#screen)
 
 
 # pong.c
@@ -34,4 +35,7 @@ Ping pong только по шагам
 
 ***A/Z и K/M для перемещения ракеток, потом Enter***
 
-***Space Bar для пропуска действия на очередном шаге игры в пошаговом режиме.***
+***Space Bar для пропуска действия на очередном шаге игры.***
+
+# Screen
+![pong_sample](images/ping_pong_semple.png)

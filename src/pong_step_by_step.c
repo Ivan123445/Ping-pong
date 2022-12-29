@@ -1,5 +1,3 @@
-// Copyright 2022 Ivan123445
-
 #include <stdio.h>
 
 // мячик
@@ -15,7 +13,7 @@
 #define RACK_R_START_POS_Y 11
 
 // настройки
-#define WIN_SCORE 21
+#define WIN_SCORE 24
 
 
 
@@ -47,7 +45,7 @@ int main() {
         input_field_to_screen();  //        отрисовываем счет поле
 
         if (read_symb() == 0) {  //        считываем и если символы
-                                // корректные перемещаем ракеток(в read_symb) и мяч
+                                //         корректные перемещаем ракеток(в read_symb) и мяч
             move_ball();
         }
     }
@@ -69,7 +67,7 @@ void win_screen() {
                 printf("=");
                 continue;
             }
-//          уголочки
+//          Углы
             if (y == 0 && x == 0) {
                 printf("╔");
                 continue;
@@ -92,7 +90,7 @@ void win_screen() {
                 x += 15;
                 continue;
             }
-//          выводим, кто победитель
+//          Выводим, кто победитель
             if (y == 12 && x == 23) {
                 if (score_left == WIN_SCORE) {
                     printf("\033[0;36mPlayer left, you are the winner!\033[0;37m");
@@ -104,7 +102,7 @@ void win_screen() {
                     continue;
                 }
             }
-//          выводим счет
+//          Выводим счет
             if (y == 15 && x == 37) {
                     printf("\033[0;31m%d : %d\033[0;37m", score_left, score_right);
                     x += 4;
