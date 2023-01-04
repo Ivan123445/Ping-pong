@@ -16,8 +16,6 @@
 #define WIN_SCORE 24
 
 
-
-
 int ball_x_coord, ball_y_coord, ball_x_speed, ball_y_speed;
 int rack_left_y_coord, rack_right_y_coord;
 int score_left, score_right;

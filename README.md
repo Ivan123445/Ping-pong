@@ -6,8 +6,7 @@
 
 1. [Pong.c](#pongc)
 2. [Pong_step_by_step.c](#pong_step_by_stepc)
-3. [Screen](#screen)
-
+3. [Скрин](#Скрин)
 
 # pong.c
 Ping pong с использованием библиотеки [ncurses](https://www.opennet.ru/docs/RUS/lfs5/appendixa/ncurses.html).
@@ -37,5 +36,5 @@ Ping pong только по шагам
 
 ***Space Bar для пропуска действия на очередном шаге игры.***
 
-# Screen
+# Скрин
 ![pong_sample](images/ping_pong_semple.png)
