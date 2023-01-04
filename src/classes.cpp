@@ -13,6 +13,8 @@ Game::Game(int win_score, int field_x, int field_y, int rack_width)
 }
 
 int Game::render() {
+    clear();
+
     //    выводим счет
     printw("                                      %d | %d \n", score_left, score_right);
 
@@ -49,6 +51,8 @@ int Game::render() {
     }
 
     printw("%d | %d", rackets.getRightYCoord(), rackets.getLeftYCoord());
+
+    refresh();
     return 0;
 }
 
@@ -117,6 +121,7 @@ int Game::init() {
 }
 
 int Game::win_screen() {
+    clear();
     //  рисуем новое поле
     for (int y = 0; y < 25; ++y) {
         for (int x = 0; x < 80; ++x) {
@@ -170,6 +175,8 @@ int Game::win_screen() {
         }
         printw("\n");
     }
+
+    refresh();
     return 0;
 }
 

@@ -1,6 +1,4 @@
-#include <cstdio>
 #include <unistd.h>
-#include <ncurses.h>
 
 #include "classes.h"
 
@@ -23,9 +21,7 @@ int main() {
     nodelay(stdscr, true);
 
     while (!game.win()) {
-        clear();
         game.render();
-        refresh();
 
         game.read_symb();
         game.next_step();
@@ -33,9 +29,7 @@ int main() {
         usleep(TIME_ONE_STEP);
     }
 
-    clear();
     game.win_screen();
-    refresh();
     getchar();
 
     endwin();
