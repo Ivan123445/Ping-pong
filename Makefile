@@ -1,7 +1,7 @@
 CC = gcc
 
-TARGET = PROG
-TARGET_SBS = PROG_SBS
+TARGET = PONG
+TARGET_SBS = PONG_SBS
 TARGET_PREF = build/
 
 FLAGS = -Wall -Wextra -Werror
@@ -15,7 +15,7 @@ SCRS_SBS = \
 	src/pong_step_by_step.c
 
 
-all: clean configure rebuild_sbs
+all: clean configure rebuild rebuild_sbs
 
 configure:
 	@if ! [ -d ./build/ ]; then \
