@@ -90,7 +90,7 @@ int Game::next_step() {
 }
 
 int Game::read_symb() {
-    switch (getch()) {
+    switch (getchar()) {
         case 'a':
             rackets.move(-1, 0);
             break;

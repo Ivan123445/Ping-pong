@@ -20,7 +20,7 @@ int main() {
     Game game(WIN_SCORE, FIELD_X, FIELD_Y, RACK_WIGHT);
 
     initscr();
-//    nodelay(stdscr, true); //  TODO
+    nodelay(curscr, true);
 
     std::thread th_render([&]{
         while (!game.win()) {
