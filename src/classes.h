@@ -1,6 +1,7 @@
 #ifndef PING_PONG_CLASSES_H
 #define PING_PONG_CLASSES_H
 
+#include <atomic>
 #include <ncurses.h>
 
 #define RACK_X_OFFSET 4
@@ -32,7 +33,7 @@ public:
 class Rackets {
     int width;
     int field_y;
-    int left_y_coord, right_y_coord;
+    std::atomic<int> left_y_coord, right_y_coord;
     int left_x_coord, right_x_coord;
 
 public:
@@ -56,7 +57,6 @@ class Game {
     int field_x, field_y;
     Ball ball;
     Rackets rackets;
-    int rack_l_offset, rack_r_offset;
     int win_score;
     int score_left, score_right;
 

@@ -9,7 +9,6 @@ Game::Game(int win_score, int field_x, int field_y, int rack_width)
     this->field_y = field_y;
 
     score_left = score_right = 0;
-    rack_r_offset = rack_l_offset = 0;
 }
 
 int Game::render() {
@@ -57,9 +56,6 @@ int Game::render() {
 }
 
 int Game::next_step() {
-    rackets.move(rack_l_offset, rack_r_offset);
-    rack_l_offset = 0;
-    rack_r_offset = 0;
     ball.move();
 
     //    отражение мячика от ракеток
@@ -96,16 +92,16 @@ int Game::next_step() {
 int Game::read_symb() {
     switch (getch()) {
         case 'a':
-            rack_l_offset -= 1;
+            rackets.move(-1, 0);
             break;
         case 'z':
-            rack_l_offset += 1;
+            rackets.move(1, 0);
             break;
         case 'm':
-            rack_r_offset += 1;
+            rackets.move(0, 1);
             break;
         case 'k':
-            rack_r_offset -= 1;
+            rackets.move(0, -1);
             break;
         default:
             return 1;
