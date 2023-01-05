@@ -65,6 +65,8 @@ public:
 
     Game(int win_score, int field_x, int field_y, int rack_width);
 
+    ~Game() { endwin(); };
+
     int init();
     int render();
     int read_symb();

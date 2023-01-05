@@ -9,6 +9,9 @@ Game::Game(int win_score, int field_x, int field_y, int rack_width)
     this->field_y = field_y;
 
     score_left = score_right = 0;
+
+    initscr();
+    nodelay(curscr, true);
 }
 
 int Game::render() {
@@ -48,8 +51,6 @@ int Game::render() {
         }
         printw("\n");
     }
-
-    printw("%d | %d", rackets.getRightYCoord(), rackets.getLeftYCoord());
 
     refresh();
     return 0;
@@ -173,6 +174,8 @@ int Game::win_screen() {
     }
 
     refresh();
+
+    getchar();
     return 0;
 }
 

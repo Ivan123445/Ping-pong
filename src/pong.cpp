@@ -10,7 +10,7 @@
 #define FIELD_X 80
 #define FIELD_Y 25
 
-// скорость игры
+// игра
 #define TIME_ONE_STEP 70000
 #define TIME_ONE_FRAME 70000
 #define WIN_SCORE 24
@@ -18,9 +18,6 @@
 
 int main() {
     Game game(WIN_SCORE, FIELD_X, FIELD_Y, RACK_WIGHT);
-
-    initscr();
-    nodelay(curscr, true);
 
     std::thread th_render([&]{
         while (!game.win()) {
@@ -46,9 +43,5 @@ int main() {
     th_next_step.join();
 
     game.win_screen();
-    getchar();
-
-    endwin();
-
     return 0;
 }
